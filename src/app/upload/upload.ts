@@ -24,7 +24,19 @@ export class UploadComponent {
   onFileChange(event: any) {
     const fileList: FileList = event.target.files;
     if (fileList.length > 0) {
-      this.file = fileList[0];
+      const selectedFile = fileList[0];
+      const allowedTypes = ['application/pdf', 'application/vnd.ms-powerpoint', 'text/plain', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+
+      if (!allowedTypes.includes(selectedFile.type)) {
+        this.snackBar.open('Invalid file type. Only PDF, PPT, Text, and Word files are allowed.', 'Close', {
+          duration: 3000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+        });
+        return;
+      }
+
+      this.file = selectedFile;
     }
   }
   onTest() {
@@ -51,6 +63,7 @@ export class UploadComponent {
               horizontalPosition: 'right',
               verticalPosition: 'top',
             });
+            
             this.router.navigate(['/dashboard']);
             
           },

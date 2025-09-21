@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { UploadComponent } from '../upload/upload';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,13 +14,12 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   styleUrls: ['./dashboard.scss']
 })
 export class DashboardComponent {
-  showUpload = false;
   chatResponse: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   onUploadDocument() {
-    this.showUpload = true;
+    this.router.navigate(['/upload']);
   }
 
   onChatWithBot() {
@@ -28,7 +28,6 @@ const payload = {
   "file": "VGhpcyBpcyBhIHRlc3QgZmlsZSBjb250ZW50Lg=="
 };
 
-    this.showUpload = false;
     this.http.post('https://6rcdg00vhj.execute-api.us-east-2.amazonaws.com/dev/valid', payload)
       .subscribe({
         next: (response) => {
