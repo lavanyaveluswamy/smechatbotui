@@ -1,0 +1,13 @@
+<!-- <mat-card>
+  <form (ngSubmit)="onSubmit($event)">
+    <input type="file" (change)="onFileChange($event)" required>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!file">Upload</button>
+    <button mat-button color="warn" (click)="onTest()">Test</button>
+  </form>
+</mat-card>
+ -->
+
+<mat-card>
+  <input type="file" (change)="onFileChange($event)" required>
+  <button mat-raised-button color="primary" type="button" (click)="onUploadClick()" [disabled]="!file">Upload</button>
+</mat-card>

@@ -1,0 +1,43 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #1976d2;
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.header-left {
+  font-weight: bold;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-right button[color="warn"] {
+  background-color: #f9f9f9;
+  color: #0b0101;
+  border-radius: 4px;
+  font-weight: 500;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+
+.header-right button[color="warn"]:hover {
+  background-color: #b71c1c;
+}
+
+.header-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.header-link:hover {
+  text-decoration: underline;
+}

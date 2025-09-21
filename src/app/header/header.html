@@ -1,0 +1,10 @@
+<header class="header-container">
+  <div class="header-left">
+    <a routerLink="/dashboard" class="header-link">SME Chat Bot</a>
+  </div>
+  <div class="header-right">
+    <span *ngIf="isLoggedIn">{{ userName }}</span>
+    <button mat-button color="primary" *ngIf="!isLoggedIn" (click)="onLogin()">Login</button>
+    <button mat-button color="warn" *ngIf="isLoggedIn" (click)="onLogout()">Logout</button>
+  </div>
+</header>
